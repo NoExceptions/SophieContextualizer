@@ -18,7 +18,7 @@ public class DataEndP {
 
     @GetMapping("/getRTValue/{nodeId}/{attribute}")
     public Data getDataForNodeAttribute(@PathVariable String nodeId, @PathVariable String attribute) throws MalformedURLException {
-        return dq.getAttributeData(atr.getAttrByNodeAndName(nodeId,attribute));
+        return dq.getAttributeData(atr.getAttrByNodeAndName(nodeId,attribute).block());
     }
 
 
