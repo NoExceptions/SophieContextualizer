@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.MongoDatabaseFactory;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory;
+import org.springframework.web.client.RestTemplate;
 
 @Configuration
 public class MongoConfiguration {
@@ -19,4 +20,6 @@ public class MongoConfiguration {
     public MongoTemplate mongoTemplate() {
         return new MongoTemplate(mongoDatabaseFactory());
     }
+
+
 }

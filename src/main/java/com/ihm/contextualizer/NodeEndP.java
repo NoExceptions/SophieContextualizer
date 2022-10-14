@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/nodes")
 public class NodeEndP {
 
-    @Autowired
+
     NodeRepository nodeRepository;
 
     @GetMapping(value = "/")

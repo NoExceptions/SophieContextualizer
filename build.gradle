@@ -1,3 +1,4 @@
+
 plugins {
     id 'org.springframework.boot' version '2.7.3'
     id 'io.spring.dependency-management' version '1.0.13.RELEASE'
@@ -13,15 +14,19 @@ repositories {
 }
 
 dependencies {
+    configurations.implementation.setCanBeResolved(true)
     implementation group: 'org.json', name: 'json', version: '20220924'
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.9.1'
-    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: '2.7.4'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb:2.7.4'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.4'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.7.4'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.4'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+
 targetCompatibility = JavaVersion.VERSION_11
