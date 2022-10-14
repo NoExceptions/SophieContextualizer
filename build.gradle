@@ -23,7 +23,14 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools:2.7.4'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.4'
 }
+// Add these START
+bootJar {
+    archiveClassifier.set('boot')
+}
 
+jar {
+    archiveClassifier.set('')
+}
 tasks.named('test') {
     useJUnitPlatform()
 }
