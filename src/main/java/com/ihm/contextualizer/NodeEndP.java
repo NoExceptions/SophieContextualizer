@@ -3,12 +3,13 @@ package com.ihm.contextualizer;
 import com.ihm.contextualizer.node.NodeType;
 import com.ihm.contextualizer.node.Node;
 
-import com.ihm.contextualizer.Repo.NodeRepository;
-
+import com.ihm.contextualizer.repo.NodeQueries;
+import com.ihm.contextualizer.repo.NodeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/nodes")
@@ -18,23 +19,31 @@ public class NodeEndP {
     NodeRepository nodeRepository;
 
     @GetMapping(value = "/")
-    public Flux<Node> getAllNodes() {
+    public List<Node> getAllNodes() {
         return nodeRepository.findAll();
     }
+
+    @GetMapping(value = "/byType/{mytype}")
+    public List<Node> getNodesByType(@PathVariable String mytype) {
+        return nodeRepository.findNodesByType(mytype);
+    }
+
+
+
     @GetMapping(value = "/{nodeId}")
-    public Node getNodeById(@PathVariable String nodeId) {
-        return nodeRepository.findById(nodeId).block();
+    public Optional<Node> getNodeById(@PathVariable String nodeId) {
+        return nodeRepository.findById(nodeId);
     }
 
     @GetMapping(value = "/architecture")
-    public Node getNodeByType() {
-
-        return nodeRepository.findNodesByType(NodeType.COORP).block();
+    public List<Node> getNodeByType() {
+        NodeQueries nq = new NodeQueries();
+        return nq.getNodesByType(NodeType.COORP);
     }
 
     @PostMapping(value = "/create")
-    public Mono<Node> addNode(@RequestBody Flux<Node> node) {
-        return nodeRepository.save(node.blockLast());
+    public Node addNode(@RequestBody Node node) {
+        return nodeRepository.save(node);
     }
 
 

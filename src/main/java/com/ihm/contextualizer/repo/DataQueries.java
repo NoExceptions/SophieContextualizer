@@ -1,4 +1,4 @@
-package com.ihm.contextualizer.Repo;
+package com.ihm.contextualizer.repo;
 
 
 import com.ihm.contextualizer.comm.Data;
@@ -7,7 +7,6 @@ import com.ihm.contextualizer.node.Attribute;
 
 
 import java.net.MalformedURLException;
-import java.util.List;
 
 public class DataQueries {
 

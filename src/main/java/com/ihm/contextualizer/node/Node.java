@@ -1,11 +1,15 @@
 package com.ihm.contextualizer.node;
 
+import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +21,7 @@ public class Node {
 
 
     @DocumentReference
-    List<Node> Children = null;
+    List<Node> Children = new ArrayList<>();
     String Name = null;
     NodeType Type = null;
     List<Attribute> Attributes = null;
@@ -40,10 +44,10 @@ public class Node {
     public List<Node> getChildren() {
         return Children;
     }
-
     public void setChildren(List<Node> children) {
         Children = children;
     }
+
 
     public String getName() {
         return Name;
@@ -83,4 +87,7 @@ public class Node {
     public void setLastModifiedDate(Date lastModifiedDate) {
         LastModifiedDate = lastModifiedDate;
     }
+
+
+
 }

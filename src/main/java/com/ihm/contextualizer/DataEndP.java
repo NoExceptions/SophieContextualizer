@@ -1,10 +1,8 @@
 package com.ihm.contextualizer;
 
-import com.ihm.contextualizer.Repo.AttrQueries;
-import com.ihm.contextualizer.Repo.DataQueries;
-
 import com.ihm.contextualizer.comm.Data;
 
+import com.ihm.contextualizer.repo.DataQueries;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.MalformedURLException;
@@ -18,7 +16,7 @@ public class DataEndP {
 
     @GetMapping("/getRTValue/{nodeId}/{attribute}")
     public Data getDataForNodeAttribute(@PathVariable String nodeId, @PathVariable String attribute) throws MalformedURLException {
-        return dq.getAttributeData(atr.getAttrByNodeAndName(nodeId,attribute).block());
+        return dq.getAttributeData(atr.getAttrByNodeAndName(nodeId,attribute).get(0));
     }
 
 
