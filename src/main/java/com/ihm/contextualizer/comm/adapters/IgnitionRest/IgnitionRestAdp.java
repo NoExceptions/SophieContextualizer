@@ -1,11 +1,10 @@
 package com.ihm.contextualizer.comm.adapters.IgnitionRest;
 
-import com.google.gson.Gson;
+
 import com.ihm.contextualizer.comm.Data;
 import com.ihm.contextualizer.comm.adapters.commAdapter;
 import com.ihm.contextualizer.node.ValueType;
-import org.json.JSONObject;
-import org.json.JSONString;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -17,7 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
-import java.util.Locale;
+
 
 public class IgnitionRestAdp implements commAdapter {
 
