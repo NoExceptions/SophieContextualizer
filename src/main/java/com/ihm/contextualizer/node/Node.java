@@ -1,14 +1,13 @@
 package com.ihm.contextualizer.node;
 
-import org.bson.types.ObjectId;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,7 +22,9 @@ public class Node {
     @DocumentReference
     List<Node> Children = new ArrayList<>();
     String Name = null;
-    NodeType Type = null;
+
+    @NotNull
+    NodeType Type;
     List<Attribute> Attributes = null;
 
     @CreatedDate

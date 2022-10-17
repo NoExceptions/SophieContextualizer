@@ -3,6 +3,7 @@ package com.ihm.contextualizer.repo;
 
 import com.ihm.contextualizer.node.Node;
 
+import com.ihm.contextualizer.node.NodeType;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
@@ -16,7 +17,7 @@ import java.util.List;
 public interface NodeRepository  extends MongoRepository<Node,String> {
 
     @Query("{ 'Type' : ?0 }")
-    List<Node> findNodesByType(String type);
+    List<Node> findNodesByType(NodeType type);
 
 
 }
