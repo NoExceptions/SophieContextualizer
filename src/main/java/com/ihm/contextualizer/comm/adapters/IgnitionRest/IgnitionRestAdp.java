@@ -47,7 +47,7 @@ public class IgnitionRestAdp implements commAdapter {
         Data ans = new Data(Source,Query);
         ans.setValue(response.getBody()[0]);
         ans.setTimestamp(new Date());
-        ans.setType(ValueType.DOCUMENT);
+        ans.setType(ValueType.TAG);
         return ans;
     }
 }
